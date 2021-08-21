@@ -6,7 +6,7 @@
 /*   By: vdragomi <vdragomi@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 14:12:03 by vdragomi          #+#    #+#             */
-/*   Updated: 2021/08/21 21:54:45 by vdragomi         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:27:31 by vdragomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 // P = the principal investment amount (the initial deposit or loan amount)
 // r = the annual interest rate (decimal)
 // t = the time the money is invested or borrowed for
-// n = number of times interest is compounded ( if you make 12 extra payments yearly - one each month - n will be 12);
+// n = number of times interest is compounded;
 // PMT = monthly payment
 
-pub fn final_calc(principal:f64, rate:f64, time:f64, pmt:f64, n:f64) => f64
+pub fn final_calc(principal:f64, mut rate:f64, time:f64, pmt:f64, n:f64) -> f64
 {
 	//we make sure that te rate is expressed as a float, not as a percentage; e.g 10% = 10 / 100 = 0.1;
 	rate = rate / 100.0;
@@ -41,7 +41,7 @@ pub fn final_calc(principal:f64, rate:f64, time:f64, pmt:f64, n:f64) => f64
     let future_value = pmt * ((future_value_power - 1.0) / (rate / 12.0));
 	//the final will be a sum of the compound interest for the principal and the future value series:
 	//Final = [ Compound interest for principal ] + [ Future value of a series ]:
-    let final: f64 = ci + future_value;
+    let total: f64 = ci + future_value;
 	//returning final
-	final
+	total
 }
