@@ -1,3 +1,7 @@
-# ultimate_compound_calc
+![Ultimate Compound](ucc.png)
+# Ultimate Compound Interest Calculator
 
-A create to calculate compound interest.
+A crate to calculate compound interest.
+
+# Code Style
+Before cntributing to this crate, please have a look at this [site](https://doc.rust-lang.org/1.0.0/style/).
