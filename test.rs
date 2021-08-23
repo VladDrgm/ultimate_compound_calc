@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rate_calc.rs                                       :+:      :+:    :+:   */
+/*   test.rs                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdragomi <vdragomi@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/21 14:12:54 by vdragomi          #+#    #+#             */
-/*   Updated: 2021/08/21 22:05:26 by vdragomi         ###   ########.fr       */
+/*   Created: 2021/08/21 22:11:45 by vdragomi          #+#    #+#             */
+/*   Updated: 2021/08/21 22:25:52 by vdragomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//the formula for interest rate is:
-//r = n[(A / P) ^ 1 / (n * t) - 1]
-//Note that you should multiply your result by 100 to get a percentage figure (%)
+mod final_calc;
 
-pub fn rate_calc(principal:f64, final:f64, time:f64, pmt:f64, n:f64) => f64
+fn main()
 {
-	let power = f64:powf()
+	if final_calc::final_calc(5000.0, 5.0, 10.0, 100.0, 12.0) == 23763.27543301812
+	{
+		println!("calculations are correct");
+	}
+	else
+	{
+		println!("oops, incorrect math!")
+	}
 }
