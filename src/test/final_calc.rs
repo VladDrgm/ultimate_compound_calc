@@ -6,7 +6,7 @@
 /*   By: vdragomi <vdragomi@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 14:12:03 by vdragomi          #+#    #+#             */
-/*   Updated: 2021/08/25 13:36:14 by vdragomi         ###   ########.fr       */
+/*   Updated: 2021/08/26 17:43:22 by vdragomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 // n = number of times interest is compounded;
 // PMT = monthly payment
 
-pub fn final_calc(principal:f64, mut rate:f64, time:f64, pmt:f64, n:f64) -> f64
+pub fn final_calc(principal:f64, mut rate:f64, time:f64, n:f64) -> f64
 {
 	//we make sure that te rate is expressed as a float, not as a percentage; e.g 10% = 10 / 100 = 0.1;
 	rate = rate / 100.0;
 	//the formula to calculate the compound interest for the principal is:
 	//Compound interest for principal (ci) = P * (1+r/n)^(nt)
 	//first we calculate the power part of the formula: ( 1 + r / n) ^ (n * t)
-    let power = f64::powf(1.0 + rate / 12.0, time * 12.0);
+    let power = f64::powf(1.0 + rate / n, time * n);
 	//now we multiply the result with the principal so we get the compound interest for the principal:
     let ci = principal * power;
 	//return ci
