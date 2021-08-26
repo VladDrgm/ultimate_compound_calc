@@ -6,7 +6,7 @@
 /*   By: vdragomi <vdragomi@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 14:12:03 by vdragomi          #+#    #+#             */
-/*   Updated: 2021/08/21 22:27:31 by vdragomi         ###   ########.fr       */
+/*   Updated: 2021/08/25 13:36:14 by vdragomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,11 @@ pub fn final_calc(principal:f64, mut rate:f64, time:f64, pmt:f64, n:f64) -> f64
 	//we make sure that te rate is expressed as a float, not as a percentage; e.g 10% = 10 / 100 = 0.1;
 	rate = rate / 100.0;
 	//the formula to calculate the compound interest for the principal is:
-	//Compound interest for principal = P * (1+r/n)^(nt)
+	//Compound interest for principal (ci) = P * (1+r/n)^(nt)
 	//first we calculate the power part of the formula: ( 1 + r / n) ^ (n * t)
     let power = f64::powf(1.0 + rate / 12.0, time * 12.0);
 	//now we multiply the result with the principal so we get the compound interest for the principal:
     let ci = principal * power;
-	//the formula to calculate the future value of a series is: PMT × (((1 + r/n)^(nt) - 1) / (r/n));
-	//we calculate the power part of the formula first: (1 + r / n)^(n * t)
-    let future_value_power = f64::powf(1.0 + (rate / 12.0), 12.0 * time);
-	// we use the result inside the original formula and proceed to calculate the future value:
-    let future_value = pmt * ((future_value_power - 1.0) / (rate / 12.0));
-	//the final will be a sum of the compound interest for the principal and the future value series:
-	//Final = [ Compound interest for principal ] + [ Future value of a series ]:
-    let total: f64 = ci + future_value;
-	//returning final
-	total
+	//return ci
+	ci
 }
